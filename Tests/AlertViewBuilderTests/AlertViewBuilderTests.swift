@@ -1,12 +1,29 @@
 import XCTest
+import UIKit
 @testable import AlertViewBuilder
 
 final class AlertViewBuilderTests: XCTestCase {
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(AlertViewBuilder().text, "Hello, World!")
+        let cancel = true
+
+        let alert = UIAlertController.makeAlert {
+            AlertComponent.title("")
+            AlertComponent.message("")
+            AlertComponent.action(
+                UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                    print("***> clicked Ok")
+                })
+            )
+            if cancel {
+                AlertComponent.action(
+                    UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+                        print("***> clicked cancel")
+                    })
+                )
+            }
+        }
+
+        XCTAssertNotNil(alert)
     }
 
     static var allTests = [

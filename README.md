@@ -1,3 +1,3 @@
 # AlertViewBuilder
 
-A description of this package.
+Custom builder for alert controller using function builder feature.
